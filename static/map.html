@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_7b74422a9e1582eda200be0d63c1ac27 {
+                #map_e95892eb4c86a22eefa0c57230ced748 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,20 +35,14 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_7b74422a9e1582eda200be0d63c1ac27" ></div>
-        
-    
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_7b74422a9e1582eda200be0d63c1ac27"];
+            var leafletMap = window["map_e95892eb4c86a22eefa0c57230ced748"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -77,16 +71,19 @@
     
         </script>
     
+    
+            <div class="folium-map" id="map_e95892eb4c86a22eefa0c57230ced748" ></div>
+        
 </body>
 <script>
     
     
-            var map_7b74422a9e1582eda200be0d63c1ac27 = L.map(
-                "map_7b74422a9e1582eda200be0d63c1ac27",
+            var map_e95892eb4c86a22eefa0c57230ced748 = L.map(
+                "map_e95892eb4c86a22eefa0c57230ced748",
                 {
-                    center: [50.727089574060976, -3.5289805093193487],
+                    center: [50.726, -3.5275],
                     crs: L.CRS.EPSG3857,
-                    zoom: 13,
+                    zoom: 12,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -96,301 +93,13 @@
 
         
     
-            var tile_layer_6bbb09067af3f2d7e4a764b597a6f65c = L.tileLayer(
+            var tile_layer_695e6bcc761df411d132ecf782b431e0 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_6bbb09067af3f2d7e4a764b597a6f65c.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
+            tile_layer_695e6bcc761df411d132ecf782b431e0.addTo(map_e95892eb4c86a22eefa0c57230ced748);
         
-    
-        function geo_json_2791a64c075f661ab03230c504fa5574_styler(feature) {
-            switch(feature.id) {
-                default:
-                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
-            }
-        }
-
-        function geo_json_2791a64c075f661ab03230c504fa5574_onEachFeature(feature, layer) {
-            layer.on({
-            });
-        };
-        var geo_json_2791a64c075f661ab03230c504fa5574 = L.geoJson(null, {
-                onEachFeature: geo_json_2791a64c075f661ab03230c504fa5574_onEachFeature,
-            
-                style: geo_json_2791a64c075f661ab03230c504fa5574_styler,
-        });
-
-        function geo_json_2791a64c075f661ab03230c504fa5574_add (data) {
-            geo_json_2791a64c075f661ab03230c504fa5574
-                .addData(data);
-        }
-            geo_json_2791a64c075f661ab03230c504fa5574_add({"features": [{"geometry": {"coordinates": [[[-3.5291032, 50.7353246], [-3.5276733, 50.7355666], [-3.5236242, 50.7362387], [-3.5227159, 50.735806], [-3.5177478, 50.7326205], [-3.5171605, 50.7319517], [-3.5162068, 50.7308043], [-3.5158314, 50.7303364], [-3.5155978, 50.7298774], [-3.5142607, 50.7238322], [-3.5143409, 50.723367], [-3.5151383, 50.7228138], [-3.5242117, 50.7188162], [-3.5264488, 50.7181853], [-3.5275499, 50.7180612], [-3.5369909, 50.7190891], [-3.5431651, 50.7274724], [-3.5437109, 50.7289105], [-3.5437044, 50.7291068], [-3.5432515, 50.7312407], [-3.5418872, 50.7323583], [-3.5413811, 50.7325252], [-3.5291032, 50.7353246]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
-
-        
-    
-            geo_json_2791a64c075f661ab03230c504fa5574.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            var marker_cluster_1266622b8a91811f097edfe6ae762ffe = L.markerClusterGroup(
-                {}
-            );
-        
-    
-            var marker_6bc8e7d8ea257aa742d744a05fcd9dd1 = L.marker(
-                [50.7226173, -3.5286652],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_2c793a92b0550a0e04267c32859d21d3 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_6bc8e7d8ea257aa742d744a05fcd9dd1.setIcon(icon_2c793a92b0550a0e04267c32859d21d3);
-        
-    
-        var popup_0e879be8d8da65cc30e0cab33f081432 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_d8944b199d47ba1a88bff704f397fbdd = $(`<div id="html_d8944b199d47ba1a88bff704f397fbdd" style="width: 100.0%; height: 100.0%;">Exeter Cathedral School</div>`)[0];
-                popup_0e879be8d8da65cc30e0cab33f081432.setContent(html_d8944b199d47ba1a88bff704f397fbdd);
-            
-        
-
-        marker_6bc8e7d8ea257aa742d744a05fcd9dd1.bindPopup(popup_0e879be8d8da65cc30e0cab33f081432)
-        ;
-
-        
-    
-    
-            var marker_4c0f02d4b09f6ec98d6f7222d4ce7f09 = L.marker(
-                [50.72896406831008, -3.5243075538587263],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_2747823cada6126e9df52311eaeb5003 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_4c0f02d4b09f6ec98d6f7222d4ce7f09.setIcon(icon_2747823cada6126e9df52311eaeb5003);
-        
-    
-        var popup_a990d851d83ccb8cba91043127955031 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_043184475cddbc07cfe3edec10a56a75 = $(`<div id="html_043184475cddbc07cfe3edec10a56a75" style="width: 100.0%; height: 100.0%;">St Sidwell's Church of England Primary School & Nursery</div>`)[0];
-                popup_a990d851d83ccb8cba91043127955031.setContent(html_043184475cddbc07cfe3edec10a56a75);
-            
-        
-
-        marker_4c0f02d4b09f6ec98d6f7222d4ce7f09.bindPopup(popup_a990d851d83ccb8cba91043127955031)
-        ;
-
-        
-    
-    
-            var marker_d82d2661773589366a991d9522d5421b = L.marker(
-                [50.72247468253879, -3.520843467488292],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_053c2a3f05356f9b01915d34345e2ce0 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_d82d2661773589366a991d9522d5421b.setIcon(icon_053c2a3f05356f9b01915d34345e2ce0);
-        
-    
-        var popup_ce092114f289d4abb7ffdd3135a25ed8 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_4f0e82cb4eb5eb71c6de3c31b7c9f406 = $(`<div id="html_4f0e82cb4eb5eb71c6de3c31b7c9f406" style="width: 100.0%; height: 100.0%;">The Maynard School</div>`)[0];
-                popup_ce092114f289d4abb7ffdd3135a25ed8.setContent(html_4f0e82cb4eb5eb71c6de3c31b7c9f406);
-            
-        
-
-        marker_d82d2661773589366a991d9522d5421b.bindPopup(popup_ce092114f289d4abb7ffdd3135a25ed8)
-        ;
-
-        
-    
-    
-            var marker_df2c6c0fa103f0a276004c5653bf5941 = L.marker(
-                [50.72535531134043, -3.518439635397933],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_d055113f9b088c815081a440ec1b0f0a = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_df2c6c0fa103f0a276004c5653bf5941.setIcon(icon_d055113f9b088c815081a440ec1b0f0a);
-        
-    
-        var popup_e6c31e68aad6314c86efbd64dfccd9e2 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_448883c21dc9c25af2ac8bdbea500a9f = $(`<div id="html_448883c21dc9c25af2ac8bdbea500a9f" style="width: 100.0%; height: 100.0%;">Newtown Primary School</div>`)[0];
-                popup_e6c31e68aad6314c86efbd64dfccd9e2.setContent(html_448883c21dc9c25af2ac8bdbea500a9f);
-            
-        
-
-        marker_df2c6c0fa103f0a276004c5653bf5941.bindPopup(popup_e6c31e68aad6314c86efbd64dfccd9e2)
-        ;
-
-        
-    
-    
-            var marker_20c3387de0379bd097d6a74d5fdc4725 = L.marker(
-                [50.721599748355494, -3.530293966694414],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_8d46808dcd39b78762c1f82d04c058d8 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_20c3387de0379bd097d6a74d5fdc4725.setIcon(icon_8d46808dcd39b78762c1f82d04c058d8);
-        
-    
-        var popup_021fe6a93391fcf06a7ea7771ed2e9db = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_f7f6591710d41f1052ccd63be7e1b0f7 = $(`<div id="html_f7f6591710d41f1052ccd63be7e1b0f7" style="width: 100.0%; height: 100.0%;">Exeter Cathedral School</div>`)[0];
-                popup_021fe6a93391fcf06a7ea7771ed2e9db.setContent(html_f7f6591710d41f1052ccd63be7e1b0f7);
-            
-        
-
-        marker_20c3387de0379bd097d6a74d5fdc4725.bindPopup(popup_021fe6a93391fcf06a7ea7771ed2e9db)
-        ;
-
-        
-    
-    
-            var marker_41dc11d73f51a18fe6f3ae14c027a8a2 = L.marker(
-                [50.724256460684614, -3.53745231862671],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_5125d0191556148bda1e8eb3457bf812 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_41dc11d73f51a18fe6f3ae14c027a8a2.setIcon(icon_5125d0191556148bda1e8eb3457bf812);
-        
-    
-        var popup_80d9009bc2380295d467b07fc851200a = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_9dee6b7cad7e80ab9bbcc5aed3678527 = $(`<div id="html_9dee6b7cad7e80ab9bbcc5aed3678527" style="width: 100.0%; height: 100.0%;">St David's CofE Primary School</div>`)[0];
-                popup_80d9009bc2380295d467b07fc851200a.setContent(html_9dee6b7cad7e80ab9bbcc5aed3678527);
-            
-        
-
-        marker_41dc11d73f51a18fe6f3ae14c027a8a2.bindPopup(popup_80d9009bc2380295d467b07fc851200a)
-        ;
-
-        
-    
-    
-            var marker_6d806233c4a6589b9ba995af8dc826a3 = L.marker(
-                [50.72538976736656, -3.538367797128102],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_63aef93a43e848b37d8b24178dbb468c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_6d806233c4a6589b9ba995af8dc826a3.setIcon(icon_63aef93a43e848b37d8b24178dbb468c);
-        
-    
-        var popup_aef21f525301890c1b58207c2f47253a = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_93362916acfc6088ab4a5aa11a4d69a9 = $(`<div id="html_93362916acfc6088ab4a5aa11a4d69a9" style="width: 100.0%; height: 100.0%;">St Wilfrid's School</div>`)[0];
-                popup_aef21f525301890c1b58207c2f47253a.setContent(html_93362916acfc6088ab4a5aa11a4d69a9);
-            
-        
-
-        marker_6d806233c4a6589b9ba995af8dc826a3.bindPopup(popup_aef21f525301890c1b58207c2f47253a)
-        ;
-
-        
-    
-    
-            var marker_cd0cac24f4366e7a31b485f4c54cb699 = L.marker(
-                [50.725606411033894, -3.529753003451045],
-                {}
-            ).addTo(marker_cluster_1266622b8a91811f097edfe6ae762ffe);
-        
-    
-            var icon_da1ed49d958f900f6dfbf740e14f4e58 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_cd0cac24f4366e7a31b485f4c54cb699.setIcon(icon_da1ed49d958f900f6dfbf740e14f4e58);
-        
-    
-        var popup_f3ba5c70b3b1c71ed2814bd2912d9bc1 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_76b85556569e0b3ffd87fa949ac8234a = $(`<div id="html_76b85556569e0b3ffd87fa949ac8234a" style="width: 100.0%; height: 100.0%;">Exeter Mathematics School</div>`)[0];
-                popup_f3ba5c70b3b1c71ed2814bd2912d9bc1.setContent(html_76b85556569e0b3ffd87fa949ac8234a);
-            
-        
-
-        marker_cd0cac24f4366e7a31b485f4c54cb699.bindPopup(popup_f3ba5c70b3b1c71ed2814bd2912d9bc1)
-        ;
-
-        
-    
-    
-            marker_cluster_1266622b8a91811f097edfe6ae762ffe.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            tile_layer_6bbb09067af3f2d7e4a764b597a6f65c.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            geo_json_2791a64c075f661ab03230c504fa5574.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            marker_cluster_1266622b8a91811f097edfe6ae762ffe.addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            var marker_dfb8564ba80466d5cd38ba14dac23a3d = L.marker(
-                [50.727089574060976, -3.5289805093193487],
-                {}
-            ).addTo(map_7b74422a9e1582eda200be0d63c1ac27);
-        
-    
-            var icon_f5a0add144d6e2c66ddddd11682b5d6c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
-            );
-            marker_dfb8564ba80466d5cd38ba14dac23a3d.setIcon(icon_f5a0add144d6e2c66ddddd11682b5d6c);
-        
-    
-        var popup_5b2d4c0bca5c0066f0a1dd470d536921 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_10b0426e9736c61ba6fab30aec376078 = $(`<div id="html_10b0426e9736c61ba6fab30aec376078" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
-                popup_5b2d4c0bca5c0066f0a1dd470d536921.setContent(html_10b0426e9736c61ba6fab30aec376078);
-            
-        
-
-        marker_dfb8564ba80466d5cd38ba14dac23a3d.bindPopup(popup_5b2d4c0bca5c0066f0a1dd470d536921)
-        ;
-
-        
-    
 </script>
 </html>

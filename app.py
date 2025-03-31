@@ -459,7 +459,10 @@ def compare_areas():
     # Render the compare.html page with the map URL
     return render_template('compare_area.html', map_url_1=map_path_1, map_url_2=map_path_2, form_data=form_data, stats=stats)
     
-
+# about page
+@app.route("/about")
+def about():
+    return render_template('about.html')
 
 if __name__ == "__main__":
     warnings.simplefilter("ignore")
