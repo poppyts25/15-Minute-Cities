@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <title>Compare 15 Minute Areas</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/compare">Compare Areas</a>
+    </div>
+    <div id="usersettings">
+        <form action="/compare" method="POST">
+            <label for="travel_method">Travel Method:</label>
+            <select id="travel_method" name="travel_method">
+                <option value="Walk" {% if form_data.travel_method == "Walk" %}selected{% endif %}>Walk</option>
+                <option value="Bike" {% if form_data.travel_method == "Bike" %}selected{% endif %}>Bike</option>
+            </select><br><br>
+        
+            <label for="speed">Speed:</label>
+            <select name="speed" id="speed">
+                <option value="S" {% if form_data.speed == "S" %}selected{% endif %}>Slow</option>
+                <option value="A" {% if form_data.speed == "A" %}selected{% endif %}>Average</option>
+                <option value="F" {% if form_data.speed == "F" %}selected{% endif %}>Fast</option>
+            </select><br><br>
+        
+            <label for="amenity">Amenity:</label>
+            <select name="amenity" id="amenity">
+                <option value="none" {% if form_data.amenity == "none" %}selected{% endif %}>No Selection</option>
+                <option value="hospital" {% if form_data.amenity == "hospital" %}selected{% endif %}>Hospital</option>
+                <option value="school" {% if form_data.amenity == "school" %}selected{% endif %}>School</option>
+                <option value="police" {% if form_data.amenity == "police" %}selected{% endif %}>Police Station</option>
+                <option value="restaurant" {% if form_data.amenity == "restaurant" %}selected{% endif %}>Restaurant</option>
+                <option value="pharmacy" {% if form_data.amenity == "pharmacy" %}selected{% endif %}>Pharmacy</option>
+                <option value="cafe" {% if form_data.amenity == "cafe" %}selected{% endif %}>Cafe</option>
+                <option value="library" {% if form_data.amenity == "library" %}selected{% endif %}>Library</option>
+                <option value="university" {% if form_data.amenity == "university" %}selected{% endif %}>University</option>
+                <option value="fuel" {% if form_data.amenity == "fuel" %}selected{% endif %}>Petrol Station</option>
+                <option value="bank" {% if form_data.amenity == "bank" %}selected{% endif %}>Bank</option>
+                <option value="atm" {% if form_data.amenity == "atm" %}selected{% endif %}>ATM</option>
+                <option value="doctors" {% if form_data.amenity == "doctors" %}selected{% endif %}>Doctors</option>
+                <option value="community_centre" {% if form_data.amenity == "community_centre" %}selected{% endif %}>Community Centre</option>
+                <option value="fire_station" {% if form_data.amenity == "fire_station" %}selected{% endif %}>Fire Station</option>
+                <option value="post_office" {% if form_data.amenity == "post_office" %}selected{% endif %}>Post Office</option>
+                <option value="drinking_water" {% if form_data.amenity == "drinking_water" %}selected{% endif %}>Drinking Water</option>
+                <option value="toilets" {% if form_data.amenity == "toilets" %}selected{% endif %}>Toilets(WC)</option>
+                <option value="clinic" {% if form_data.amenity == "clinic" %}selected{% endif %}>Clinic</option>
+            </select><br><br>
+
+            <label for="latitude1" hidden>Latitude:</label>
+            <input type="text" id="latitude1" name="latitude1" value="{{ form_data.latitude1}}" readonly hidden><br>
+            <label for="longitude1" hidden>Longitude:</label>
+            <input type="text" id="longitude1" name="longitude1" value="{{ form_data.longitude1 }}" readonly hidden><br><br>
+
+            <label for="latitude2" hidden>Latitude:</label>
+            <input type="text" id="latitude2" name="latitude2" value="{{ form_data.latitude2 }}"  readonly hidden><br>
+            <label for="longitude2" hidden>Longitude:</label>
+            <input type="text" id="longitude2" name="longitude2" value="{{ form_data.longitude2 }}" readonly hidden><br><br>
+
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="info">
+        <h3>Map 1:</h3>
+        <h3>Number of amenity: {{ stats.markers_1 }}</h3>
+        <h3>Area: {{ stats.area_1 }} km^2</h3>
+        <h3>Map 2:</h3>
+        <h3>Number of amenity: {{ stats.markers_2 }}</h3>
+        <h3>Area: {{ stats.area_2 }} km^2</h3>
+    </div>
+    <div id="mapbox">
+        <iframe src="{{ map_url_1 }}" height="100%" width="49%" left=0 id="mapframe1" ></iframe>
+        <iframe src= "{{ map_url_2 }}" height="100%" width="49%" right=0 id="mapframe2" ></iframe>
+    </div>
+
+    <script>
+        window.addEventListener("message", function(event) {
+            var data = event.data;
+
+            if (data.lat && data.lng) {
+                console.log("Received coordinates from iframe:", data.lat, data.lng);
+
+                // Identify the iframe that sent the message
+                var iframes = document.getElementsByTagName("iframe");
+                let senderFrame = null;
+
+                for (let i = 0; i < iframes.length; i++) {
+                    if (iframes[i].contentWindow === event.source) {
+                        senderFrame = iframes[i].id;
+                        break;
+                    }
+                }
+
+                if (senderFrame === "mapframe1") {
+                    console.log("Data came from area1.html");
+                    document.getElementById("latitude1").value = data.lat;
+                    document.getElementById("longitude1").value = data.lng;
+                } else if (senderFrame === "mapframe2") {
+                    console.log("Data came from area2.html");
+                    document.getElementById("latitude2").value = data.lat;
+                    document.getElementById("longitude2").value = data.lng;
+                }
+
+            }
+        }, false);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>    
+<head>
+    <link rel="stylesheet" href="static/style.css">
+    <title>Fifteen Minute City</title>
+</head>
+<body>
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/compare">Compare Areas</a>
+    </div>
+    <div id="usersettings">
+        <form action="/" method="POST">
+            <label for="travel_method">Travel Method:</label>
+            <select id="travel_method" name="travel_method">
+                <option value="Walk" {% if form_data.travel_method == "Walk" %}selected{% endif %}>Walk</option>
+                <option value="Bike" {% if form_data.travel_method == "Bike" %}selected{% endif %}>Bike</option>
+            </select><br><br>
+        
+            <label for="speed">Speed:</label>
+            <select name="speed" id="speed">
+                <option value="S" {% if form_data.speed == "S" %}selected{% endif %}>Slow</option>
+                <option value="A" {% if form_data.speed == "A" %}selected{% endif %}>Average</option>
+                <option value="F" {% if form_data.speed == "F" %}selected{% endif %}>Fast</option>
+            </select><br><br>
+        
+            <label for="amenity">Amenity:</label>
+            <select name="amenity" id="amenity">
+                <option value="none" {% if form_data.amenity == "none" %}selected{% endif %}>No Selection</option>
+                <option value="hospital" {% if form_data.amenity == "hospital" %}selected{% endif %}>Hospital</option>
+                <option value="school" {% if form_data.amenity == "school" %}selected{% endif %}>School</option>
+                <option value="police" {% if form_data.amenity == "police" %}selected{% endif %}>Police Station</option>
+                <option value="restaurant" {% if form_data.amenity == "restaurant" %}selected{% endif %}>Restaurant</option>
+                <option value="pharmacy" {% if form_data.amenity == "pharmacy" %}selected{% endif %}>Pharmacy</option>
+                <option value="cafe" {% if form_data.amenity == "cafe" %}selected{% endif %}>Cafe</option>
+                <option value="library" {% if form_data.amenity == "library" %}selected{% endif %}>Library</option>
+                <option value="university" {% if form_data.amenity == "university" %}selected{% endif %}>University</option>
+                <option value="fuel" {% if form_data.amenity == "fuel" %}selected{% endif %}>Petrol Station</option>
+                <option value="bank" {% if form_data.amenity == "bank" %}selected{% endif %}>Bank</option>
+                <option value="atm" {% if form_data.amenity == "atm" %}selected{% endif %}>ATM</option>
+                <option value="doctors" {% if form_data.amenity == "doctors" %}selected{% endif %}>Doctors</option>
+                <option value="community_centre" {% if form_data.amenity == "community_centre" %}selected{% endif %}>Community Centre</option>
+                <option value="fire_station" {% if form_data.amenity == "fire_station" %}selected{% endif %}>Fire Station</option>
+                <option value="post_office" {% if form_data.amenity == "post_office" %}selected{% endif %}>Post Office</option>
+                <option value="drinking_water" {% if form_data.amenity == "drinking_water" %}selected{% endif %}>Drinking Water</option>
+                <option value="toilets" {% if form_data.amenity == "toilets" %}selected{% endif %}>Toilets(WC)</option>
+                <option value="clinic" {% if form_data.amenity == "clinic" %}selected{% endif %}>Clinic</option>
+            </select><br><br>
+        
+            <label for="latitude" hidden>Latitude:</label>
+            <input type="text" id="latitude" name="latitude" value="{{ form_data.latitude }}" readonly hidden ><br>
+        
+            <label for="longitude" hidden>Longitude:</label>
+            <input type="text" id="longitude" name="longitude" value="{{ form_data.longitude }}" readonly hidden ><br><br>
+        
+            <input type="submit" value="Submit">
+        </form>
+                   
+    </div>
+    <div id="info">
+        <h3>Number of amenity: {{ stats.markers }}</h3>
+        <h3>Area: {{ stats.area }} km^2</h3>
+    </div>
+    <div id="mapbox">
+        <iframe src="{{ map_url }}" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+    <script>
+        // Listen for messages sent from the iframe
+        window.addEventListener("message", function(event) {
+            // Optionally, validate the origin for security
+            // if (event.origin !== window.location.origin) { return; }
+
+            var data = event.data;
+            if (data.lat && data.lng) {
+                console.log("Received coordinates from iframe:", data.lat, data.lng);
+
+                // Update the form fields with the received coordinates
+                document.getElementById("latitude").value = data.lat;
+                document.getElementById("longitude").value = data.lng;
+
+                // Also update a paragraph for display
+                document.getElementById("coordinates").textContent = "[" + data.lat + ", " + data.lng + "]";
+            } else {
+                console.error("Invalid message received:", data);
+            }
+        }, false);
+    </script>
+</body>
+</html>
