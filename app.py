@@ -58,6 +58,9 @@ def save_map(m, map_path):
         </script>
     """))
 
+    # Define bounds: [southwest, northeast]
+    bounds = [[-60, -180], [60, 180]]  # Approximate bounds around the globe
+
     m.save(map_path)  # Save in 'static' folder
 
 def add_amenities(m, centre, polygon, amenity, distance):
@@ -110,7 +113,7 @@ def index():
         os.makedirs("static")
 
     # Create a Folium map
-    m = folium.Map(location=[50.7260, -3.5275], zoom_start=12)  # Example: exeter, UK
+    m = folium.Map(location=[50.7260, -3.5275], zoom_start=12, max_bounds=True ,min_zoom=2 )  # Example: exeter, UK
 
     # save the map with the click event
     save_map(m, map_path)
@@ -176,7 +179,7 @@ def main_index():
         isochrone_polygon = alphashape(node_points, alpha)
 
         # Create a Folium map
-        m = folium.Map(location=center_point, zoom_start=13)
+        m = folium.Map(location=center_point, zoom_start=13, max_bounds=True, min_zoom=2)  
 
         # Add the isochrone polygon to the map
         style_func = lambda x: {"fillColor": "red", "color": "red", "weight": 0, "fillOpacity": 0.4}
@@ -255,8 +258,8 @@ def compare_index():
         os.makedirs("static")
 
     # Create a Folium map
-    m1 = folium.Map(location=[50.7260, -3.5275], zoom_start=12)  # Example: exeter, UK
-    m2 = folium.Map(location=[50.7260, -3.5275], zoom_start=12)  # Example: exeter, UK
+    m1 = folium.Map(location=[50.7260, -3.5275], zoom_start=12,max_bounds=True, min_zoom=2)  # Example: exeter, UK
+    m2 = folium.Map(location=[50.7260, -3.5275], zoom_start=12, max_bounds=True, min_zoom=2)  # Example: exeter, UK
 
     # Get the generated map variable name (Folium uses a unique name)
     map_name_1 = m1.get_name()
@@ -349,8 +352,8 @@ def compare_areas():
         print(2)
 
         # Create a Folium map
-        m1 = folium.Map(location=center_point_1, zoom_start=13)
-        m2 = folium.Map(location=center_point_2, zoom_start=13)
+        m1 = folium.Map(location=center_point_1, zoom_start=13,max_bounds=True, min_zoom=2)
+        m2 = folium.Map(location=center_point_2, zoom_start=13, max_bounds=True, min_zoom=2 )
 
         # Add the isochrone polygon to the map
         style_func = lambda x: {"fillColor": "red", "color": "red", "weight": 0, "fillOpacity": 0.4}

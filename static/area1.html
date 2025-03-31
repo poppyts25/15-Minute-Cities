@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_0c4ebaa619f26c4c8c4abaceced261cd {
+                #map_40032e165b3f9ae85ba31b879958cc79 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,7 +42,7 @@
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_0c4ebaa619f26c4c8c4abaceced261cd"];
+            var leafletMap = window["map_40032e165b3f9ae85ba31b879958cc79"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -72,17 +72,18 @@
         </script>
     
     
-            <div class="folium-map" id="map_0c4ebaa619f26c4c8c4abaceced261cd" ></div>
+            <div class="folium-map" id="map_40032e165b3f9ae85ba31b879958cc79" ></div>
         
 </body>
 <script>
     
     
-            var map_0c4ebaa619f26c4c8c4abaceced261cd = L.map(
-                "map_0c4ebaa619f26c4c8c4abaceced261cd",
+            var map_40032e165b3f9ae85ba31b879958cc79 = L.map(
+                "map_40032e165b3f9ae85ba31b879958cc79",
                 {
                     center: [50.726, -3.5275],
                     crs: L.CRS.EPSG3857,
+                    maxBounds: [[-90, -180], [90, 180]],
                     zoom: 12,
                     zoomControl: true,
                     preferCanvas: false,
@@ -93,13 +94,19 @@
 
         
     
-            var tile_layer_40d488d7f961dbbc59a80087f36a3b77 = L.tileLayer(
+            var tile_layer_4715a187ef1a11acd5b14f2507c9e67c = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
-                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_40d488d7f961dbbc59a80087f36a3b77.addTo(map_0c4ebaa619f26c4c8c4abaceced261cd);
+            tile_layer_4715a187ef1a11acd5b14f2507c9e67c.addTo(map_40032e165b3f9ae85ba31b879958cc79);
+        
+    
+            map_40032e165b3f9ae85ba31b879958cc79.fitBounds(
+                [[-60, -180], [60, 180]],
+                {}
+            );
         
 </script>
 </html>
