@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a9a55f87931d71750ec634cd6a1fdafe {
+                #map_91fa555f0e12245dbef14c1d67f162b4 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,14 +35,20 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
+            <div class="folium-map" id="map_91fa555f0e12245dbef14c1d67f162b4" ></div>
+        
+    
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_a9a55f87931d71750ec634cd6a1fdafe"];
+            var leafletMap = window["map_91fa555f0e12245dbef14c1d67f162b4"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -71,20 +77,17 @@
     
         </script>
     
-    
-            <div class="folium-map" id="map_a9a55f87931d71750ec634cd6a1fdafe" ></div>
-        
 </body>
 <script>
     
     
-            var map_a9a55f87931d71750ec634cd6a1fdafe = L.map(
-                "map_a9a55f87931d71750ec634cd6a1fdafe",
+            var map_91fa555f0e12245dbef14c1d67f162b4 = L.map(
+                "map_91fa555f0e12245dbef14c1d67f162b4",
                 {
-                    center: [50.726, -3.5275],
+                    center: [50.724263358885175, -3.521082801068168],
                     crs: L.CRS.EPSG3857,
                     maxBounds: [[-90, -180], [90, 180]],
-                    zoom: 12,
+                    zoom: 13,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -94,13 +97,166 @@
 
         
     
-            var tile_layer_3406d3a60f949e44344eed35c9328c8e = L.tileLayer(
+            var tile_layer_2eb6b1e19eee2906945011677787a97f = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_3406d3a60f949e44344eed35c9328c8e.addTo(map_a9a55f87931d71750ec634cd6a1fdafe);
+            tile_layer_2eb6b1e19eee2906945011677787a97f.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
         
+    
+        function geo_json_e4b9500dff84a3239495ee8a1238a961_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
+            }
+        }
+
+        function geo_json_e4b9500dff84a3239495ee8a1238a961_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_e4b9500dff84a3239495ee8a1238a961 = L.geoJson(null, {
+                onEachFeature: geo_json_e4b9500dff84a3239495ee8a1238a961_onEachFeature,
+            
+                style: geo_json_e4b9500dff84a3239495ee8a1238a961_styler,
+        });
+
+        function geo_json_e4b9500dff84a3239495ee8a1238a961_add (data) {
+            geo_json_e4b9500dff84a3239495ee8a1238a961
+                .addData(data);
+        }
+            geo_json_e4b9500dff84a3239495ee8a1238a961_add({"features": [{"geometry": {"coordinates": [[[-3.5389695, 50.7298584], [-3.5307314, 50.7348849], [-3.5291032, 50.7353246], [-3.5236242, 50.7362387], [-3.5151979, 50.7370513], [-3.5058787, 50.7308387], [-3.503705, 50.7287508], [-3.502295, 50.7269702], [-3.5006918, 50.7217394], [-3.5006342, 50.7209504], [-3.5010597, 50.7203883], [-3.5029976, 50.7182587], [-3.5045302, 50.7174104], [-3.5094888, 50.7151428], [-3.5102277, 50.714819], [-3.5176635, 50.7133166], [-3.5208745, 50.713042], [-3.5362776, 50.7170397], [-3.5380846, 50.718403], [-3.5384404, 50.7193331], [-3.5385816, 50.7199016], [-3.5400682, 50.7278611], [-3.5393475, 50.7294972], [-3.5389695, 50.7298584]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_e4b9500dff84a3239495ee8a1238a961.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            var marker_cluster_b4b19395f534cdcd0b268e4a3223663a = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_9f0f97b6d6b4fc0d25562de1e61a4f3b = L.marker(
+                [50.724711282749034, -3.5137953905994395],
+                {}
+            ).addTo(marker_cluster_b4b19395f534cdcd0b268e4a3223663a);
+        
+    
+            var icon_5c303931a8e5afa0ffc80cfc2767584d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_9f0f97b6d6b4fc0d25562de1e61a4f3b.setIcon(icon_5c303931a8e5afa0ffc80cfc2767584d);
+        
+    
+        var popup_5dcf8de33f990900c4d091473f14adc4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e4bcb7751bbc832d63e6b40372e3b311 = $(`<div id="html_e4bcb7751bbc832d63e6b40372e3b311" style="width: 100.0%; height: 100.0%;">Royal Devon & Exeter Hospital (Heavitree)</div>`)[0];
+                popup_5dcf8de33f990900c4d091473f14adc4.setContent(html_e4bcb7751bbc832d63e6b40372e3b311);
+            
+        
+
+        marker_9f0f97b6d6b4fc0d25562de1e61a4f3b.bindPopup(popup_5dcf8de33f990900c4d091473f14adc4)
+        ;
+
+        
+    
+    
+            var marker_8cb1720e058f490c5e9e7f11d301e91e = L.marker(
+                [50.71730409494562, -3.5135678254318874],
+                {}
+            ).addTo(marker_cluster_b4b19395f534cdcd0b268e4a3223663a);
+        
+    
+            var icon_0c4abca62cae04a560633f2c41cdf746 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_8cb1720e058f490c5e9e7f11d301e91e.setIcon(icon_0c4abca62cae04a560633f2c41cdf746);
+        
+    
+        var popup_9efc347ae62fc53161a90a7843636521 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b1c71c8dcc108429c2122f72188a2a6a = $(`<div id="html_b1c71c8dcc108429c2122f72188a2a6a" style="width: 100.0%; height: 100.0%;">Mardon Neuro-Rehabilitation Centre</div>`)[0];
+                popup_9efc347ae62fc53161a90a7843636521.setContent(html_b1c71c8dcc108429c2122f72188a2a6a);
+            
+        
+
+        marker_8cb1720e058f490c5e9e7f11d301e91e.bindPopup(popup_9efc347ae62fc53161a90a7843636521)
+        ;
+
+        
+    
+    
+            var marker_2b04d78e573f742e067a12564d05f4df = L.marker(
+                [50.716503013785456, -3.5118228883658533],
+                {}
+            ).addTo(marker_cluster_b4b19395f534cdcd0b268e4a3223663a);
+        
+    
+            var icon_cb18a43e87f81b661b40b0106b309ba9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_2b04d78e573f742e067a12564d05f4df.setIcon(icon_cb18a43e87f81b661b40b0106b309ba9);
+        
+    
+        var popup_89388d04543c72cd345d331cb7845eea = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a343c4962208b8887c01b58dac585001 = $(`<div id="html_a343c4962208b8887c01b58dac585001" style="width: 100.0%; height: 100.0%;">Nuffield Hospital</div>`)[0];
+                popup_89388d04543c72cd345d331cb7845eea.setContent(html_a343c4962208b8887c01b58dac585001);
+            
+        
+
+        marker_2b04d78e573f742e067a12564d05f4df.bindPopup(popup_89388d04543c72cd345d331cb7845eea)
+        ;
+
+        
+    
+    
+            marker_cluster_b4b19395f534cdcd0b268e4a3223663a.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            tile_layer_2eb6b1e19eee2906945011677787a97f.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            geo_json_e4b9500dff84a3239495ee8a1238a961.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            marker_cluster_b4b19395f534cdcd0b268e4a3223663a.addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            var marker_584403ea0219359e4f3d899889fbbb0a = L.marker(
+                [50.724263358885175, -3.521082801068168],
+                {}
+            ).addTo(map_91fa555f0e12245dbef14c1d67f162b4);
+        
+    
+            var icon_82b50c87c6f065b9cabdb5d11740cbc5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
+            );
+            marker_584403ea0219359e4f3d899889fbbb0a.setIcon(icon_82b50c87c6f065b9cabdb5d11740cbc5);
+        
+    
+        var popup_fd3e0809edbec51642545d6f6f3738b0 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f59fd84e9401616ad622b2a83a8e262b = $(`<div id="html_f59fd84e9401616ad622b2a83a8e262b" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
+                popup_fd3e0809edbec51642545d6f6f3738b0.setContent(html_f59fd84e9401616ad622b2a83a8e262b);
+            
+        
+
+        marker_584403ea0219359e4f3d899889fbbb0a.bindPopup(popup_fd3e0809edbec51642545d6f6f3738b0)
+        ;
+
+        
+    
 </script>
 </html>

@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_8cf770a4d1a5265f1fe52b648193602a {
+                #map_f054cecc5b9d2c6fd6954cc75e58a8fb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,14 +35,20 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
+            <div class="folium-map" id="map_f054cecc5b9d2c6fd6954cc75e58a8fb" ></div>
+        
+    
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_8cf770a4d1a5265f1fe52b648193602a"];
+            var leafletMap = window["map_f054cecc5b9d2c6fd6954cc75e58a8fb"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -71,20 +77,17 @@
     
         </script>
     
-    
-            <div class="folium-map" id="map_8cf770a4d1a5265f1fe52b648193602a" ></div>
-        
 </body>
 <script>
     
     
-            var map_8cf770a4d1a5265f1fe52b648193602a = L.map(
-                "map_8cf770a4d1a5265f1fe52b648193602a",
+            var map_f054cecc5b9d2c6fd6954cc75e58a8fb = L.map(
+                "map_f054cecc5b9d2c6fd6954cc75e58a8fb",
                 {
-                    center: [50.726, -3.5275],
+                    center: [50.7816247088699, -2.9978520013383507],
                     crs: L.CRS.EPSG3857,
                     maxBounds: [[-90, -180], [90, 180]],
-                    zoom: 12,
+                    zoom: 13,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -94,19 +97,193 @@
 
         
     
-            var tile_layer_2c08a2affeb7b20e007c76c51e34b99a = L.tileLayer(
+            var tile_layer_8f0a758c70d75ba0577d38dd917f21c6 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_2c08a2affeb7b20e007c76c51e34b99a.addTo(map_8cf770a4d1a5265f1fe52b648193602a);
+            tile_layer_8f0a758c70d75ba0577d38dd917f21c6.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
         
     
-            map_8cf770a4d1a5265f1fe52b648193602a.fitBounds(
-                [[-60, -180], [60, 180]],
+        function geo_json_2c5df82570ef946d9ff80d71b4f0041c_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
+            }
+        }
+
+        function geo_json_2c5df82570ef946d9ff80d71b4f0041c_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_2c5df82570ef946d9ff80d71b4f0041c = L.geoJson(null, {
+                onEachFeature: geo_json_2c5df82570ef946d9ff80d71b4f0041c_onEachFeature,
+            
+                style: geo_json_2c5df82570ef946d9ff80d71b4f0041c_styler,
+        });
+
+        function geo_json_2c5df82570ef946d9ff80d71b4f0041c_add (data) {
+            geo_json_2c5df82570ef946d9ff80d71b4f0041c
+                .addData(data);
+        }
+            geo_json_2c5df82570ef946d9ff80d71b4f0041c_add({"features": [{"geometry": {"coordinates": [[[-2.9946807, 50.7879256], [-2.9921652, 50.7887609], [-2.9892361, 50.7892266], [-2.9875095, 50.7893324], [-2.9870127, 50.7886542], [-2.9851763, 50.7858058], [-2.9837333, 50.7786951], [-2.9847172, 50.7762002], [-3.00032, 50.7733162], [-3.0041965, 50.7737553], [-3.0054855, 50.7740377], [-3.0071923, 50.7756839], [-3.0074954, 50.7772346], [-3.0075906, 50.7789418], [-3.0075693, 50.7789937], [-3.0024899, 50.7841228], [-2.9965535, 50.7873016], [-2.9946807, 50.7879256]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_2c5df82570ef946d9ff80d71b4f0041c.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            var marker_cluster_ef51e9903b993178cfd8fe2f23f61787 = L.markerClusterGroup(
                 {}
             );
         
+    
+            var marker_45a4351e63f628e8450d2a5f721b7b73 = L.marker(
+                [50.7824121, -2.9915978],
+                {}
+            ).addTo(marker_cluster_ef51e9903b993178cfd8fe2f23f61787);
+        
+    
+            var icon_ac02394373b7fd41231ea93098350122 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_45a4351e63f628e8450d2a5f721b7b73.setIcon(icon_ac02394373b7fd41231ea93098350122);
+        
+    
+        var popup_46fa48efc871ff6703472d775437c03f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_297eea427848092ec779687d4d0b3488 = $(`<div id="html_297eea427848092ec779687d4d0b3488" style="width: 100.0%; height: 100.0%;">Little Acorns @ Axminster Primary Academy</div>`)[0];
+                popup_46fa48efc871ff6703472d775437c03f.setContent(html_297eea427848092ec779687d4d0b3488);
+            
+        
+
+        marker_45a4351e63f628e8450d2a5f721b7b73.bindPopup(popup_46fa48efc871ff6703472d775437c03f)
+        ;
+
+        
+    
+    
+            var marker_b0f6b3509a1026727d4aa075b6b5e521 = L.marker(
+                [50.782658, -2.9914288],
+                {}
+            ).addTo(marker_cluster_ef51e9903b993178cfd8fe2f23f61787);
+        
+    
+            var icon_5637e7921e4ddf88a017d7137d9cac44 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b0f6b3509a1026727d4aa075b6b5e521.setIcon(icon_5637e7921e4ddf88a017d7137d9cac44);
+        
+    
+        var popup_14254b08f5eb4fdb305ac50ac2b933f9 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a1d890b8add7af48cc3d4fc7dc89e026 = $(`<div id="html_a1d890b8add7af48cc3d4fc7dc89e026" style="width: 100.0%; height: 100.0%;">Axminster Community Primary Academy</div>`)[0];
+                popup_14254b08f5eb4fdb305ac50ac2b933f9.setContent(html_a1d890b8add7af48cc3d4fc7dc89e026);
+            
+        
+
+        marker_b0f6b3509a1026727d4aa075b6b5e521.bindPopup(popup_14254b08f5eb4fdb305ac50ac2b933f9)
+        ;
+
+        
+    
+    
+            var marker_1e872bcea3bb20e2d1324627bcb9b3bf = L.marker(
+                [50.77993862362928, -2.992415933328941],
+                {}
+            ).addTo(marker_cluster_ef51e9903b993178cfd8fe2f23f61787);
+        
+    
+            var icon_61e50f4babb37739dd551894bf25bed4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_1e872bcea3bb20e2d1324627bcb9b3bf.setIcon(icon_61e50f4babb37739dd551894bf25bed4);
+        
+    
+        var popup_83f5fef9cccfc36e5b4434128756cee1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1f58c9cd4c29a0fb83240f25ce6986a2 = $(`<div id="html_1f58c9cd4c29a0fb83240f25ce6986a2" style="width: 100.0%; height: 100.0%;">St Mary's Catholic Primary School, Axminster</div>`)[0];
+                popup_83f5fef9cccfc36e5b4434128756cee1.setContent(html_1f58c9cd4c29a0fb83240f25ce6986a2);
+            
+        
+
+        marker_1e872bcea3bb20e2d1324627bcb9b3bf.bindPopup(popup_83f5fef9cccfc36e5b4434128756cee1)
+        ;
+
+        
+    
+    
+            var marker_b8362af83e7c201b5d0b59a3b22ba915 = L.marker(
+                [50.78276385627984, -2.993966157387363],
+                {}
+            ).addTo(marker_cluster_ef51e9903b993178cfd8fe2f23f61787);
+        
+    
+            var icon_f4b79ef17f923754d7905e21747c3259 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_b8362af83e7c201b5d0b59a3b22ba915.setIcon(icon_f4b79ef17f923754d7905e21747c3259);
+        
+    
+        var popup_8c1c5c304aa3d0559fedb97debb2a4b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e8f45613fe6d235b1e1bf11e0a38965b = $(`<div id="html_e8f45613fe6d235b1e1bf11e0a38965b" style="width: 100.0%; height: 100.0%;">Axe Valley Academy</div>`)[0];
+                popup_8c1c5c304aa3d0559fedb97debb2a4b3.setContent(html_e8f45613fe6d235b1e1bf11e0a38965b);
+            
+        
+
+        marker_b8362af83e7c201b5d0b59a3b22ba915.bindPopup(popup_8c1c5c304aa3d0559fedb97debb2a4b3)
+        ;
+
+        
+    
+    
+            marker_cluster_ef51e9903b993178cfd8fe2f23f61787.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            tile_layer_8f0a758c70d75ba0577d38dd917f21c6.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            geo_json_2c5df82570ef946d9ff80d71b4f0041c.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            marker_cluster_ef51e9903b993178cfd8fe2f23f61787.addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            var marker_a3e048a99d145cb38c81c1ebec5f30c0 = L.marker(
+                [50.7816247088699, -2.9978520013383507],
+                {}
+            ).addTo(map_f054cecc5b9d2c6fd6954cc75e58a8fb);
+        
+    
+            var icon_12f4c48c207d60456c8d7718aa9802ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
+            );
+            marker_a3e048a99d145cb38c81c1ebec5f30c0.setIcon(icon_12f4c48c207d60456c8d7718aa9802ea);
+        
+    
+        var popup_4a47a957bef4060aa1bf16135cc29555 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_604ee15a26ed232250f46a21c5fe3583 = $(`<div id="html_604ee15a26ed232250f46a21c5fe3583" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
+                popup_4a47a957bef4060aa1bf16135cc29555.setContent(html_604ee15a26ed232250f46a21c5fe3583);
+            
+        
+
+        marker_a3e048a99d145cb38c81c1ebec5f30c0.bindPopup(popup_4a47a957bef4060aa1bf16135cc29555)
+        ;
+
+        
+    
 </script>
 </html>
