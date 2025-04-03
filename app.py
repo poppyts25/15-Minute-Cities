@@ -136,7 +136,7 @@ def index():
 # Main route for the index page
 @app.route("/", methods=["GET", "POST"])
 def main_index():
-    map_url = url_for('static', filename='map.html')  # Default value for the embedded map
+    map_path = "static/map.html"
 
     if request.method == "POST":
         # Retrieve user input from the form
@@ -204,12 +204,9 @@ def main_index():
         ).add_to(m)
 
 
-        map_path = "static/map.html"  # Serve the map from the static directory
+          # Serve the map from the static directory
         # save the map with the click event
-        save_map(m, map_path)        
-
-        # Set the URL for the embedded map
-        map_url = url_for('static', filename='map.html')
+        save_map(m, map_path)               
 
     form_data = {
         "travel_method": request.form.get("travel_method", ""),
@@ -223,12 +220,12 @@ def main_index():
         combined_polygon = isochrone_polygon
     else:
         combined_polygon = MultiPolygon([isochrone_polygon])
-
-    # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs="EPSG:4326")
-
+    
     # **Determine the correct UTM zone dynamically**
     epsg_code = get_epsg_code(center_lat, center_lon)
+   
+    # Convert to GeoDataFrame
+    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
 
     # **Reproject to UTM for accurate area calculation**
     isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
@@ -243,7 +240,7 @@ def main_index():
         }
 
     # Render the index.html page with the map URL
-    return render_template("index.html", map_url=map_url, form_data=form_data, stats=stats)
+    return render_template("index.html", map_url=map_path, form_data=form_data, stats=stats)
 
 
 # Main route for the compare areas page
@@ -261,9 +258,6 @@ def compare_index():
     m1 = folium.Map(location=[50.7260, -3.5275], zoom_start=12,max_bounds=True, min_zoom=2)  # Example: exeter, UK
     m2 = folium.Map(location=[50.7260, -3.5275], zoom_start=12, max_bounds=True, min_zoom=2)  # Example: exeter, UK
 
-    # Get the generated map variable name (Folium uses a unique name)
-    map_name_1 = m1.get_name()
-    map_name_2 = m2.get_name()
 
     save_map(m1, map_path_1)
     save_map(m2, map_path_2)
@@ -289,9 +283,6 @@ def compare_index():
 # compare areas page
 @app.route("/compare", methods=["GET", "POST"])
 def compare_areas():
-    map_url_1 = url_for('static', filename='area1.html')
-    map_url_2 = url_for('static', filename='area2.html')
-
     if request.method == "POST":
         # Retrieve user input from the form
         travel_method = request.form.get("travel_method")
@@ -419,11 +410,12 @@ def compare_areas():
     else:
         combined_polygon = MultiPolygon([isochrone_polygon_1])
 
-    # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs="EPSG:4326")
-
     # **Determine the correct UTM zone dynamically**
     epsg_code = get_epsg_code(center_lat_1, center_lon_1)
+
+    # Convert to GeoDataFrame
+    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
+
 
     # **Reproject to UTM for accurate area calculation**
     isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
@@ -439,7 +431,7 @@ def compare_areas():
         combined_polygon = MultiPolygon([isochrone_polygon_2])
 
     # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs="EPSG:4326")
+    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
 
     # **Determine the correct UTM zone dynamically**
     epsg_code = get_epsg_code(center_lat_2, center_lon_2)

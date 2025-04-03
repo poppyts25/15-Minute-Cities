@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_45de62665cfbda6b9b8f7c82f234a5e8 {
+                #map_5a78055bf0d3bbbff7cc2ccd615c69e9 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,20 +35,14 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
-            <div class="folium-map" id="map_45de62665cfbda6b9b8f7c82f234a5e8" ></div>
-        
-    
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_45de62665cfbda6b9b8f7c82f234a5e8"];
+            var leafletMap = window["map_5a78055bf0d3bbbff7cc2ccd615c69e9"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -77,14 +71,17 @@
     
         </script>
     
+    
+            <div class="folium-map" id="map_5a78055bf0d3bbbff7cc2ccd615c69e9" ></div>
+        
 </body>
 <script>
     
     
-            var map_45de62665cfbda6b9b8f7c82f234a5e8 = L.map(
-                "map_45de62665cfbda6b9b8f7c82f234a5e8",
+            var map_5a78055bf0d3bbbff7cc2ccd615c69e9 = L.map(
+                "map_5a78055bf0d3bbbff7cc2ccd615c69e9",
                 {
-                    center: [50.715042661302036, -3.5337865405216977],
+                    center: [50.72228362740532, -3.5095258967165015],
                     crs: L.CRS.EPSG3857,
                     maxBounds: [[-90, -180], [90, 180]],
                     zoom: 13,
@@ -97,190 +94,65 @@
 
         
     
-            var tile_layer_f8cb34a778417d2f5ee3ed5cbc753374 = L.tileLayer(
+            var tile_layer_40335e6aaaa93f002ecbc9d32caf3358 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_f8cb34a778417d2f5ee3ed5cbc753374.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
+            tile_layer_40335e6aaaa93f002ecbc9d32caf3358.addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
         
     
-        function geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_styler(feature) {
+        function geo_json_c265a276a030658e7bf146bf20358ee3_styler(feature) {
             switch(feature.id) {
                 default:
                     return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
             }
         }
 
-        function geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_onEachFeature(feature, layer) {
+        function geo_json_c265a276a030658e7bf146bf20358ee3_onEachFeature(feature, layer) {
             layer.on({
             });
         };
-        var geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c = L.geoJson(null, {
-                onEachFeature: geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_onEachFeature,
+        var geo_json_c265a276a030658e7bf146bf20358ee3 = L.geoJson(null, {
+                onEachFeature: geo_json_c265a276a030658e7bf146bf20358ee3_onEachFeature,
             
-                style: geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_styler,
+                style: geo_json_c265a276a030658e7bf146bf20358ee3_styler,
         });
 
-        function geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_add (data) {
-            geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c
+        function geo_json_c265a276a030658e7bf146bf20358ee3_add (data) {
+            geo_json_c265a276a030658e7bf146bf20358ee3
                 .addData(data);
         }
-            geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c_add({"features": [{"geometry": {"coordinates": [[[-3.5464461, 50.7146559], [-3.5468348, 50.7197861], [-3.5468227, 50.7200888], [-3.5461333, 50.7209793], [-3.544116, 50.7225438], [-3.5363113, 50.7235343], [-3.531311, 50.7234434], [-3.5275742, 50.72117], [-3.526606, 50.7203136], [-3.5237558, 50.7082049], [-3.5367753, 50.7072834], [-3.5375525, 50.7072503], [-3.5385946, 50.7073879], [-3.5421864, 50.7083424], [-3.5451302, 50.7119243], [-3.5464461, 50.7146559]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_c265a276a030658e7bf146bf20358ee3_add({"features": [{"geometry": {"coordinates": [[[-3.5021335, 50.7283056], [-3.5004783, 50.7278874], [-3.4955979, 50.7246044], [-3.4931244, 50.7196461], [-3.4996124, 50.7152211], [-3.5081253, 50.7128706], [-3.5113336, 50.7120038], [-3.5121449, 50.7118805], [-3.5209006, 50.7154909], [-3.5269765, 50.7202821], [-3.5254884, 50.7249704], [-3.5253186, 50.7252734], [-3.5239838, 50.7264342], [-3.5239219, 50.7264732], [-3.5238761, 50.7265018], [-3.5148611, 50.731244], [-3.5145557, 50.7313395], [-3.5137312, 50.7311477], [-3.5021335, 50.7283056]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-            geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
+            geo_json_c265a276a030658e7bf146bf20358ee3.addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
         
     
-            var marker_cluster_719d8448393d52e57823d62d6b00660a = L.markerClusterGroup(
+            var marker_c76a545b6fd8268361aba4d0bc03835c = L.marker(
+                [50.72228362740532, -3.5095258967165015],
                 {}
-            );
+            ).addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
         
     
-            var marker_3a67275e46447a4bcde69b0d81c966f6 = L.marker(
-                [50.7086909, -3.5420903],
-                {}
-            ).addTo(marker_cluster_719d8448393d52e57823d62d6b00660a);
-        
-    
-            var icon_676b049b6d2f590a91a31982a5b11727 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_3a67275e46447a4bcde69b0d81c966f6.setIcon(icon_676b049b6d2f590a91a31982a5b11727);
-        
-    
-        var popup_3e20250509b06868bc41bd94da82a49b = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_3084b60f4fc1745d4191916ad76ef4b6 = $(`<div id="html_3084b60f4fc1745d4191916ad76ef4b6" style="width: 100.0%; height: 100.0%;">Stepping Stones Pre-School</div>`)[0];
-                popup_3e20250509b06868bc41bd94da82a49b.setContent(html_3084b60f4fc1745d4191916ad76ef4b6);
-            
-        
-
-        marker_3a67275e46447a4bcde69b0d81c966f6.bindPopup(popup_3e20250509b06868bc41bd94da82a49b)
-        ;
-
-        
-    
-    
-            var marker_50786ed6acc42e4c2198d121fb107e2e = L.marker(
-                [50.7147145858432, -3.539264797845117],
-                {}
-            ).addTo(marker_cluster_719d8448393d52e57823d62d6b00660a);
-        
-    
-            var icon_0926c130f93c7b53800bada50164121c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_50786ed6acc42e4c2198d121fb107e2e.setIcon(icon_0926c130f93c7b53800bada50164121c);
-        
-    
-        var popup_3dda4eda6af6fecfaefde557c4aa72b7 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_38bd932571dd794244d173b0f969ee37 = $(`<div id="html_38bd932571dd794244d173b0f969ee37" style="width: 100.0%; height: 100.0%;">St Thomas Primary School</div>`)[0];
-                popup_3dda4eda6af6fecfaefde557c4aa72b7.setContent(html_38bd932571dd794244d173b0f969ee37);
-            
-        
-
-        marker_50786ed6acc42e4c2198d121fb107e2e.bindPopup(popup_3dda4eda6af6fecfaefde557c4aa72b7)
-        ;
-
-        
-    
-    
-            var marker_efc58762a2fb6d5ee4dd0805aae70234 = L.marker(
-                [50.71858017417696, -3.545419087534077],
-                {}
-            ).addTo(marker_cluster_719d8448393d52e57823d62d6b00660a);
-        
-    
-            var icon_99c9c267cf0cacb83a6684dc485ec1ba = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_efc58762a2fb6d5ee4dd0805aae70234.setIcon(icon_99c9c267cf0cacb83a6684dc485ec1ba);
-        
-    
-        var popup_2cbda8a64e7550047a91f17741d7d69a = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_ec12216a19122031537b1d023bb3bea4 = $(`<div id="html_ec12216a19122031537b1d023bb3bea4" style="width: 100.0%; height: 100.0%;">Montgomery Primary School</div>`)[0];
-                popup_2cbda8a64e7550047a91f17741d7d69a.setContent(html_ec12216a19122031537b1d023bb3bea4);
-            
-        
-
-        marker_efc58762a2fb6d5ee4dd0805aae70234.bindPopup(popup_2cbda8a64e7550047a91f17741d7d69a)
-        ;
-
-        
-    
-    
-            var marker_80679b2d3656cb9691769ef3e2566613 = L.marker(
-                [50.721599748355494, -3.530293966694414],
-                {}
-            ).addTo(marker_cluster_719d8448393d52e57823d62d6b00660a);
-        
-    
-            var icon_55f1f924a2b3c4101a575b9c3ac2feb6 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
-            );
-            marker_80679b2d3656cb9691769ef3e2566613.setIcon(icon_55f1f924a2b3c4101a575b9c3ac2feb6);
-        
-    
-        var popup_f875141beafba039170fafb8f55dfe61 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_9c2047b84e6c095c3a8df572798294da = $(`<div id="html_9c2047b84e6c095c3a8df572798294da" style="width: 100.0%; height: 100.0%;">Exeter Cathedral School</div>`)[0];
-                popup_f875141beafba039170fafb8f55dfe61.setContent(html_9c2047b84e6c095c3a8df572798294da);
-            
-        
-
-        marker_80679b2d3656cb9691769ef3e2566613.bindPopup(popup_f875141beafba039170fafb8f55dfe61)
-        ;
-
-        
-    
-    
-            marker_cluster_719d8448393d52e57823d62d6b00660a.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
-        
-    
-            tile_layer_f8cb34a778417d2f5ee3ed5cbc753374.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
-        
-    
-            geo_json_b2ba63f6fa0b3d7cfae3ac21b8e1919c.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
-        
-    
-            marker_cluster_719d8448393d52e57823d62d6b00660a.addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
-        
-    
-            var marker_3a378fa2f8b84b7f4c10559f9da2ed35 = L.marker(
-                [50.715042661302036, -3.5337865405216977],
-                {}
-            ).addTo(map_45de62665cfbda6b9b8f7c82f234a5e8);
-        
-    
-            var icon_116df7bb42b976adab7c4a5823f6a117 = L.AwesomeMarkers.icon(
+            var icon_ed0b19f0eef988d3a08c5385c9e43935 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
             );
-            marker_3a378fa2f8b84b7f4c10559f9da2ed35.setIcon(icon_116df7bb42b976adab7c4a5823f6a117);
+            marker_c76a545b6fd8268361aba4d0bc03835c.setIcon(icon_ed0b19f0eef988d3a08c5385c9e43935);
         
     
-        var popup_b7de7d94f1f441a073f1cfba20c52d7b = L.popup({"maxWidth": "100%"});
+        var popup_214a418270d9db12e83771318471072b = L.popup({"maxWidth": "100%"});
 
         
             
-                var html_65a498bafcec048d777cd33612cbe9a5 = $(`<div id="html_65a498bafcec048d777cd33612cbe9a5" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
-                popup_b7de7d94f1f441a073f1cfba20c52d7b.setContent(html_65a498bafcec048d777cd33612cbe9a5);
+                var html_f974ba79b5d3072abd5de97ef18a1838 = $(`<div id="html_f974ba79b5d3072abd5de97ef18a1838" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
+                popup_214a418270d9db12e83771318471072b.setContent(html_f974ba79b5d3072abd5de97ef18a1838);
             
         
 
-        marker_3a378fa2f8b84b7f4c10559f9da2ed35.bindPopup(popup_b7de7d94f1f441a073f1cfba20c52d7b)
+        marker_c76a545b6fd8268361aba4d0bc03835c.bindPopup(popup_214a418270d9db12e83771318471072b)
         ;
 
         
