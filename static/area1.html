@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_5a78055bf0d3bbbff7cc2ccd615c69e9 {
+                #map_70eaed6adf73980d0819a0cb56ed95c0 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,7 +42,7 @@
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_5a78055bf0d3bbbff7cc2ccd615c69e9"];
+            var leafletMap = window["map_70eaed6adf73980d0819a0cb56ed95c0"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -72,19 +72,19 @@
         </script>
     
     
-            <div class="folium-map" id="map_5a78055bf0d3bbbff7cc2ccd615c69e9" ></div>
+            <div class="folium-map" id="map_70eaed6adf73980d0819a0cb56ed95c0" ></div>
         
 </body>
 <script>
     
     
-            var map_5a78055bf0d3bbbff7cc2ccd615c69e9 = L.map(
-                "map_5a78055bf0d3bbbff7cc2ccd615c69e9",
+            var map_70eaed6adf73980d0819a0cb56ed95c0 = L.map(
+                "map_70eaed6adf73980d0819a0cb56ed95c0",
                 {
-                    center: [50.72228362740532, -3.5095258967165015],
+                    center: [50.726, -3.5275],
                     crs: L.CRS.EPSG3857,
                     maxBounds: [[-90, -180], [90, 180]],
-                    zoom: 13,
+                    zoom: 12,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -94,68 +94,13 @@
 
         
     
-            var tile_layer_40335e6aaaa93f002ecbc9d32caf3358 = L.tileLayer(
+            var tile_layer_83a3f7735cbc6c6673e034c8eabc17fd = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_40335e6aaaa93f002ecbc9d32caf3358.addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
+            tile_layer_83a3f7735cbc6c6673e034c8eabc17fd.addTo(map_70eaed6adf73980d0819a0cb56ed95c0);
         
-    
-        function geo_json_c265a276a030658e7bf146bf20358ee3_styler(feature) {
-            switch(feature.id) {
-                default:
-                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
-            }
-        }
-
-        function geo_json_c265a276a030658e7bf146bf20358ee3_onEachFeature(feature, layer) {
-            layer.on({
-            });
-        };
-        var geo_json_c265a276a030658e7bf146bf20358ee3 = L.geoJson(null, {
-                onEachFeature: geo_json_c265a276a030658e7bf146bf20358ee3_onEachFeature,
-            
-                style: geo_json_c265a276a030658e7bf146bf20358ee3_styler,
-        });
-
-        function geo_json_c265a276a030658e7bf146bf20358ee3_add (data) {
-            geo_json_c265a276a030658e7bf146bf20358ee3
-                .addData(data);
-        }
-            geo_json_c265a276a030658e7bf146bf20358ee3_add({"features": [{"geometry": {"coordinates": [[[-3.5021335, 50.7283056], [-3.5004783, 50.7278874], [-3.4955979, 50.7246044], [-3.4931244, 50.7196461], [-3.4996124, 50.7152211], [-3.5081253, 50.7128706], [-3.5113336, 50.7120038], [-3.5121449, 50.7118805], [-3.5209006, 50.7154909], [-3.5269765, 50.7202821], [-3.5254884, 50.7249704], [-3.5253186, 50.7252734], [-3.5239838, 50.7264342], [-3.5239219, 50.7264732], [-3.5238761, 50.7265018], [-3.5148611, 50.731244], [-3.5145557, 50.7313395], [-3.5137312, 50.7311477], [-3.5021335, 50.7283056]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
-
-        
-    
-            geo_json_c265a276a030658e7bf146bf20358ee3.addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
-        
-    
-            var marker_c76a545b6fd8268361aba4d0bc03835c = L.marker(
-                [50.72228362740532, -3.5095258967165015],
-                {}
-            ).addTo(map_5a78055bf0d3bbbff7cc2ccd615c69e9);
-        
-    
-            var icon_ed0b19f0eef988d3a08c5385c9e43935 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
-            );
-            marker_c76a545b6fd8268361aba4d0bc03835c.setIcon(icon_ed0b19f0eef988d3a08c5385c9e43935);
-        
-    
-        var popup_214a418270d9db12e83771318471072b = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_f974ba79b5d3072abd5de97ef18a1838 = $(`<div id="html_f974ba79b5d3072abd5de97ef18a1838" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
-                popup_214a418270d9db12e83771318471072b.setContent(html_f974ba79b5d3072abd5de97ef18a1838);
-            
-        
-
-        marker_c76a545b6fd8268361aba4d0bc03835c.bindPopup(popup_214a418270d9db12e83771318471072b)
-        ;
-
-        
-    
 </script>
 </html>

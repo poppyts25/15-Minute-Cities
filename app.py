@@ -103,6 +103,26 @@ def get_epsg_code(lat, lon):
     epsg_code = 32600 + utm_zone if lat >= 0 else 32700 + utm_zone  # 326XX for Northern Hemisphere, 327XX for Southern
     return epsg_code
 
+def get_area(isochrone_polygon, centre):
+    if isinstance(isochrone_polygon, MultiPolygon):
+        combined_polygon = isochrone_polygon
+    else:
+        combined_polygon = MultiPolygon([isochrone_polygon])
+    
+    # **Determine the correct UTM zone dynamically**
+    epsg_code = get_epsg_code(centre[0], centre[1])
+    print("EPSG code:", epsg_code)
+    # Convert to GeoDataFrame
+    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs="EPSG:4326")
+
+    # **Reproject to UTM for accurate area calculation**
+    isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
+    # **Calculate the area in square meters**
+    area = isochrone_gdf.geometry.area.iloc[0]/1000000
+    print("Area in square meters:", area)
+    area = round(area, 2)
+    return area
+
 @app.route('/')
 def index():
     # Generate the map
@@ -216,23 +236,7 @@ def main_index():
         "longitude": request.form.get("longitude", "")
     }
 
-    if isinstance(isochrone_polygon, MultiPolygon):
-        combined_polygon = isochrone_polygon
-    else:
-        combined_polygon = MultiPolygon([isochrone_polygon])
-    
-    # **Determine the correct UTM zone dynamically**
-    epsg_code = get_epsg_code(center_lat, center_lon)
-   
-    # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
-
-    # **Reproject to UTM for accurate area calculation**
-    isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
-    # **Calculate the area in square meters**
-    area = isochrone_gdf.geometry.area.iloc[0]/1000000
-
-    area = round(area, 2)
+    area = get_area(isochrone_polygon, center_point)
 
     stats = {
         "markers": markers, 
@@ -404,45 +408,8 @@ def compare_areas():
         "longitude2": request.form.get("longitude2", "")
     }
 
-    # map 1 area
-    if isinstance(isochrone_polygon_1, MultiPolygon):
-        combined_polygon = isochrone_polygon_1
-    else:
-        combined_polygon = MultiPolygon([isochrone_polygon_1])
-
-    # **Determine the correct UTM zone dynamically**
-    epsg_code = get_epsg_code(center_lat_1, center_lon_1)
-
-    # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
-
-
-    # **Reproject to UTM for accurate area calculation**
-    isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
-    # **Calculate the area in square meters**
-    area_1 = isochrone_gdf.geometry.area.iloc[0]/1000000
-
-    area_1 = round(area_1, 2)
-
-    # map 2 area
-    if isinstance(isochrone_polygon_2, MultiPolygon):
-        combined_polygon = isochrone_polygon_2
-    else:
-        combined_polygon = MultiPolygon([isochrone_polygon_2])
-
-    # Convert to GeoDataFrame
-    isochrone_gdf = gpd.GeoDataFrame({"geometry": [combined_polygon]}, crs=epsg_code)
-
-    # **Determine the correct UTM zone dynamically**
-    epsg_code = get_epsg_code(center_lat_2, center_lon_2)
-
-    # **Reproject to UTM for accurate area calculation**
-    isochrone_gdf = isochrone_gdf.to_crs(epsg=epsg_code)
-    # **Calculate the area in square meters**
-    area_2 = isochrone_gdf.geometry.area.iloc[0]/1000000
-
-    area_2 = round(area_2, 2)
-
+    area_1 = get_area(isochrone_polygon_1, center_point_1)
+    area_2 = get_area(isochrone_polygon_2, center_point_2)
 
     stats = {
         "markers_1": markers_1,
