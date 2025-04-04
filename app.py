@@ -301,9 +301,6 @@ def compare_areas():
         center_lon_2 = float(request.form.get("longitude2"))
         center_point_2 = (center_lat_2, center_lon_2)
 
-        print("center point 1-----------------------", center_point_1)
-        print("center point 2-----------------------", center_point_2)
-
         # Define the speed based on user input
         travel_time = 15  # in minutes
         if travel_method == "Walk":
@@ -322,12 +319,10 @@ def compare_areas():
 
         ## Load network graph
         ox.settings.use_cache = True  # Enable caching to avoid repeated downloads
-        print(0.3)
         G1 = ox.graph_from_point((center_lat_1, center_lon_1), network_type=travel, dist=distance, simplify=True, dist_type="network")
         G2 = ox.graph_from_point((center_lat_2, center_lon_2), network_type=travel, dist=distance, simplify=True, dist_type="network")
 
 
-        print(0.4)
         center_node_1 = ox.distance.nearest_nodes(G1, center_lon_1, center_lat_1)
         center_node_2 = ox.distance.nearest_nodes(G2, center_lon_2, center_lat_2)
 
@@ -344,7 +339,6 @@ def compare_areas():
         alpha = 0.3  # Try tweaking between 0.1 and 1.0 for best results
         isochrone_polygon_1 = alphashape(node_points_1, alpha)
         isochrone_polygon_2 = alphashape(node_points_2, alpha)
-        print(2)
 
         # Create a Folium map
         m1 = folium.Map(location=center_point_1, zoom_start=13,max_bounds=True, min_zoom=2)
@@ -364,7 +358,6 @@ def compare_areas():
         else:
             folium.GeoJson(isochrone_polygon_2, style_function=style_func).add_to(m2)
 
-        print(3)
 
         markers_1=0
         markers_2=0
