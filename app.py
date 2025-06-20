@@ -64,14 +64,23 @@ def save_map(m, map_path):
     m.save(map_path)  # Save in 'static' folder
 
 def add_amenities(m, centre, polygon, amenity, distance):
-    tags = {"amenity": True}
+    if amenity == "park":
+        tags = {"leisure": "park"}
+    elif amenity == "supermarket":
+        tags = {"shop": "supermarket"}
+    elif amenity == "bakery":
+        tags = {"shop": "bakery"}
+    elif amenity == "convenience":
+        tags = {"shop": "convenience"}
+    else:
+        tags = {"amenity": amenity}
+    
     epsg_code = get_epsg_code(centre[0], centre[1])
-    pois = ox.geometries_from_point(centre, tags={"amenity": amenity}, dist=distance)
+    pois = ox.geometries_from_point(centre, tags=tags, dist=distance)
     isochrone_gdf = gpd.GeoDataFrame({'id': [1], 'geometry': [polygon]}, crs=epsg_code)
     pois = gpd.GeoDataFrame(pois, geometry='geometry', crs=epsg_code)
     pois_filtered = gpd.sjoin(pois, isochrone_gdf, predicate="within", how="inner")
-    amenity_filter = pois_filtered[pois_filtered['amenity'] == amenity]
-    valid_amenities = amenity_filter[amenity_filter.geometry.notnull()]
+    valid_amenities = pois_filtered[pois_filtered.geometry.notnull()]
     valid_amenities['geometry'] = valid_amenities.geometry.apply(
         lambda geom: geom.centroid if geom.geom_type != 'Point' else geom
     )
@@ -171,11 +180,11 @@ def main_index():
         # Define the speed based on user input
         travel_time = 15  # in minutes
         if travel_method == "Walk":
-            travel_speed = 5 if speed == "S" else 6.5 if speed == "A" else 8
+            travel_speed = 3 if speed == "S" else 5 if speed == "A" else 7
             distance = 3000
             travel = "walk"
         else:
-            travel_speed = 17.7 if speed == "S" else 25 if speed == "A" else 32.3
+            travel_speed = 14 if speed == "S" else 16 if speed == "A" else 18
             distance =  5000 if speed == "S" else 7000 if speed == "A" else 9000
             travel = "bike"
             
@@ -211,7 +220,6 @@ def main_index():
 
 
         markers=0
-        # (Optional) Add amenity markers if applicable
         if amenity != "none":
             m = add_amenities(m, center_point, isochrone_polygon, amenity, distance)
             markers = count_markers(m)
@@ -304,14 +312,13 @@ def compare_areas():
         # Define the speed based on user input
         travel_time = 15  # in minutes
         if travel_method == "Walk":
-            travel_speed = 5 if speed == "S" else 6.5 if speed == "A" else 8
+            travel_speed = 3 if speed == "S" else 5 if speed == "A" else 7
             distance = 3000
             travel = "walk"
         else:
-            travel_speed = 17.7 if speed == "S" else 25 if speed == "A" else 32.3
+            travel_speed = 14 if speed == "S" else 16 if speed == "A" else 18
             distance =  5000 if speed == "S" else 7000 if speed == "A" else 9000
             travel = "bike"
-        print(0.1)
         speed_mps = travel_speed * 1000 / 3600  # Convert to meters per second
         travel_time_seconds = 15 * 60  # 15 minutes
         travel_radius = travel_time_seconds * speed_mps
@@ -336,7 +343,7 @@ def compare_areas():
         node_points_2 = np.array(list(zip(nodes_2.geometry.x, nodes_2.geometry.y)))
 
         # Adjust alpha parameter (lower values give more detail)
-        alpha = 0.3  # Try tweaking between 0.1 and 1.0 for best results
+        alpha = 0.3 
         isochrone_polygon_1 = alphashape(node_points_1, alpha)
         isochrone_polygon_2 = alphashape(node_points_2, alpha)
 
