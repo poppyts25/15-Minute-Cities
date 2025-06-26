@@ -6,7 +6,7 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="/">Home</a>
+        <a href="/home">Home</a>
         <a href="/compare">Compare Areas</a>
         <a href="/about">About</a>
     </div>
@@ -36,8 +36,6 @@
                 <option value="cafe" {% if form_data.amenity == "cafe" %}selected{% endif %}>Cafe</option>
                 <option value="library" {% if form_data.amenity == "library" %}selected{% endif %}>Library</option>
                 <option value="university" {% if form_data.amenity == "university" %}selected{% endif %}>University</option>
-                <option value="fuel" {% if form_data.amenity == "fuel" %}selected{% endif %}>Petrol Station</option>
-                <option value="bank" {% if form_data.amenity == "bank" %}selected{% endif %}>Bank</option>
                 <option value="atm" {% if form_data.amenity == "atm" %}selected{% endif %}>ATM</option>
                 <option value="doctors" {% if form_data.amenity == "doctors" %}selected{% endif %}>Doctors</option>
                 <option value="community_centre" {% if form_data.amenity == "community_centre" %}selected{% endif %}>Community Centre</option>

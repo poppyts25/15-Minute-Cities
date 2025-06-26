@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_134bc3c5536d19aac70e1fe43d3e624f {
+                #map_ce241f8e1b63abf81dc23dbd53276c2f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -35,14 +35,20 @@
                 .leaflet-container { font-size: 1rem; }
             </style>
         
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
 </head>
 <body>
     
     
+            <div class="folium-map" id="map_ce241f8e1b63abf81dc23dbd53276c2f" ></div>
+        
+    
         <script>
         
         document.addEventListener("DOMContentLoaded", function() {
-            var leafletMap = window["map_134bc3c5536d19aac70e1fe43d3e624f"];
+            var leafletMap = window["map_ce241f8e1b63abf81dc23dbd53276c2f"];
             if (!leafletMap) {
                 console.error("Map instance not found! Check if Folium initialized the map.");
                 return;
@@ -71,20 +77,17 @@
     
         </script>
     
-    
-            <div class="folium-map" id="map_134bc3c5536d19aac70e1fe43d3e624f" ></div>
-        
 </body>
 <script>
     
     
-            var map_134bc3c5536d19aac70e1fe43d3e624f = L.map(
-                "map_134bc3c5536d19aac70e1fe43d3e624f",
+            var map_ce241f8e1b63abf81dc23dbd53276c2f = L.map(
+                "map_ce241f8e1b63abf81dc23dbd53276c2f",
                 {
-                    center: [50.726, -3.5275],
+                    center: [50.71601696567701, -3.4993072949252477],
                     crs: L.CRS.EPSG3857,
                     maxBounds: [[-90, -180], [90, 180]],
-                    zoom: 12,
+                    zoom: 13,
                     zoomControl: true,
                     preferCanvas: false,
                 }
@@ -94,13 +97,193 @@
 
         
     
-            var tile_layer_ab0f0694db6404ef09dbdff5e337d29e = L.tileLayer(
+            var tile_layer_4f0f055b08a8685b31695a34a4250e45 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 2, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_ab0f0694db6404ef09dbdff5e337d29e.addTo(map_134bc3c5536d19aac70e1fe43d3e624f);
+            tile_layer_4f0f055b08a8685b31695a34a4250e45.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
         
+    
+        function geo_json_06e5e3a57d4dd8b7d25c76541c56818c_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "red", "fillColor": "red", "fillOpacity": 0.4, "weight": 0};
+            }
+        }
+
+        function geo_json_06e5e3a57d4dd8b7d25c76541c56818c_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_06e5e3a57d4dd8b7d25c76541c56818c = L.geoJson(null, {
+                onEachFeature: geo_json_06e5e3a57d4dd8b7d25c76541c56818c_onEachFeature,
+            
+                style: geo_json_06e5e3a57d4dd8b7d25c76541c56818c_styler,
+        });
+
+        function geo_json_06e5e3a57d4dd8b7d25c76541c56818c_add (data) {
+            geo_json_06e5e3a57d4dd8b7d25c76541c56818c
+                .addData(data);
+        }
+            geo_json_06e5e3a57d4dd8b7d25c76541c56818c_add({"features": [{"geometry": {"coordinates": [[[-3.5098909, 50.7217592], [-3.5061756, 50.723399], [-3.5037515, 50.7241513], [-3.5032809, 50.7242434], [-3.5031829, 50.7242603], [-3.4959311, 50.7242598], [-3.4889293, 50.7225249], [-3.4856879, 50.7215923], [-3.4856651, 50.7215563], [-3.4857444, 50.7171699], [-3.4862461, 50.7124133], [-3.4867432, 50.7115005], [-3.4869906, 50.7110469], [-3.4906891, 50.7094489], [-3.4997038, 50.7074594], [-3.5085758, 50.7073381], [-3.5087455, 50.7073382], [-3.5092688, 50.7079727], [-3.5121449, 50.7118805], [-3.5135617, 50.7150014], [-3.5141404, 50.7170698], [-3.5110575, 50.7204932], [-3.5098909, 50.7217592]]], "type": "Polygon"}, "id": "0", "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+            geo_json_06e5e3a57d4dd8b7d25c76541c56818c.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            var marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_dd2cc1bf5513f11bd4eaaa8be5064479 = L.marker(
+                [50.7164793, -3.5053039],
+                {}
+            ).addTo(marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a);
+        
+    
+            var icon_b8d773f4a1bc1f08e6fb43a9c02ec687 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_dd2cc1bf5513f11bd4eaaa8be5064479.setIcon(icon_b8d773f4a1bc1f08e6fb43a9c02ec687);
+        
+    
+        var popup_c14063171d76757ef1b015b7c18206f5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0901976e46ba46002667d0ceeeab9204 = $(`<div id="html_0901976e46ba46002667d0ceeeab9204" style="width: 100.0%; height: 100.0%;">Devon Hospitals' Short Stay School</div>`)[0];
+                popup_c14063171d76757ef1b015b7c18206f5.setContent(html_0901976e46ba46002667d0ceeeab9204);
+            
+        
+
+        marker_dd2cc1bf5513f11bd4eaaa8be5064479.bindPopup(popup_c14063171d76757ef1b015b7c18206f5)
+        ;
+
+        
+    
+    
+            var marker_e1abe31bc844210c08ad3979efa65afa = L.marker(
+                [50.71250052915112, -3.504297181877541],
+                {}
+            ).addTo(marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a);
+        
+    
+            var icon_15fb48e5a68c3be63a6f060417b0e14a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_e1abe31bc844210c08ad3979efa65afa.setIcon(icon_15fb48e5a68c3be63a6f060417b0e14a);
+        
+    
+        var popup_7d08489af8ba918e18ef1b34ac6b7543 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7c9138754f9adf2a37f6f94318956348 = $(`<div id="html_7c9138754f9adf2a37f6f94318956348" style="width: 100.0%; height: 100.0%;">Wynstream Primary School Academy</div>`)[0];
+                popup_7d08489af8ba918e18ef1b34ac6b7543.setContent(html_7c9138754f9adf2a37f6f94318956348);
+            
+        
+
+        marker_e1abe31bc844210c08ad3979efa65afa.bindPopup(popup_7d08489af8ba918e18ef1b34ac6b7543)
+        ;
+
+        
+    
+    
+            var marker_110b991e8b58ac94efb3e82646b455ca = L.marker(
+                [50.716413625525206, -3.48931843230259],
+                {}
+            ).addTo(marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a);
+        
+    
+            var icon_2af32442c2f1a157f1b2c2226142f2ea = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_110b991e8b58ac94efb3e82646b455ca.setIcon(icon_2af32442c2f1a157f1b2c2226142f2ea);
+        
+    
+        var popup_8f0215cee378d959e148864b10531302 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_70c2e703305bdf613cd3a704e6f6bf11 = $(`<div id="html_70c2e703305bdf613cd3a704e6f6bf11" style="width: 100.0%; height: 100.0%;">Woodwater Academy</div>`)[0];
+                popup_8f0215cee378d959e148864b10531302.setContent(html_70c2e703305bdf613cd3a704e6f6bf11);
+            
+        
+
+        marker_110b991e8b58ac94efb3e82646b455ca.bindPopup(popup_8f0215cee378d959e148864b10531302)
+        ;
+
+        
+    
+    
+            var marker_fee05a19975ca79f8c16222e2c1cbb95 = L.marker(
+                [50.72328225276857, -3.5042272227357567],
+                {}
+            ).addTo(marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a);
+        
+    
+            var icon_c637b6cac99091c94554569604e04078 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_fee05a19975ca79f8c16222e2c1cbb95.setIcon(icon_c637b6cac99091c94554569604e04078);
+        
+    
+        var popup_e095aa9031ed4fcf820918108048b3cf = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f151acd74766df21b9ff570c0eafa0ea = $(`<div id="html_f151acd74766df21b9ff570c0eafa0ea" style="width: 100.0%; height: 100.0%;">St Michael's Church of England Primary Academy</div>`)[0];
+                popup_e095aa9031ed4fcf820918108048b3cf.setContent(html_f151acd74766df21b9ff570c0eafa0ea);
+            
+        
+
+        marker_fee05a19975ca79f8c16222e2c1cbb95.bindPopup(popup_e095aa9031ed4fcf820918108048b3cf)
+        ;
+
+        
+    
+    
+            marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            tile_layer_4f0f055b08a8685b31695a34a4250e45.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            geo_json_06e5e3a57d4dd8b7d25c76541c56818c.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            marker_cluster_a4e7e7c213f2b175a5d89eaf8aa9c78a.addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            var marker_5713cab83de5a42943a0481f6c014d47 = L.marker(
+                [50.71601696567701, -3.4993072949252477],
+                {}
+            ).addTo(map_ce241f8e1b63abf81dc23dbd53276c2f);
+        
+    
+            var icon_6a3c0e87dd2a964dad73783cce797dbe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "lightgray", "prefix": "glyphicon"}
+            );
+            marker_5713cab83de5a42943a0481f6c014d47.setIcon(icon_6a3c0e87dd2a964dad73783cce797dbe);
+        
+    
+        var popup_25ca0481a1522a43be10a392e48d3026 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_39ab3a36fa7398273d5a3fff1fed9b07 = $(`<div id="html_39ab3a36fa7398273d5a3fff1fed9b07" style="width: 100.0%; height: 100.0%;">Centre Point</div>`)[0];
+                popup_25ca0481a1522a43be10a392e48d3026.setContent(html_39ab3a36fa7398273d5a3fff1fed9b07);
+            
+        
+
+        marker_5713cab83de5a42943a0481f6c014d47.bindPopup(popup_25ca0481a1522a43be10a392e48d3026)
+        ;
+
+        
+    
 </script>
 </html>
