@@ -5,50 +5,12 @@
     <title>Fifteen Minute City</title>
 </head>
 <body>
-    <div class="navbar">
-        <a href="/home">Home</a>
-        <a href="/compare">Compare Areas</a>
-        <a href="/about">About</a>
-    </div>
+    {% include 'navbar.html' %}
+
     <div id="usersettings">
         <form action="/" method="POST">
-            <label for="travel_method">Travel Method:</label>
-            <select id="travel_method" name="travel_method">
-                <option value="Walk" {% if form_data.travel_method == "Walk" %}selected{% endif %}>Walk</option>
-                <option value="Bike" {% if form_data.travel_method == "Bike" %}selected{% endif %}>Bike</option>
-            </select><br><br>
-        
-            <label for="speed">Speed:</label>
-            <select name="speed" id="speed">
-                <option value="S" {% if form_data.speed == "S" %}selected{% endif %}>Slow</option>
-                <option value="A" {% if form_data.speed == "A" %}selected{% endif %}>Average</option>
-                <option value="F" {% if form_data.speed == "F" %}selected{% endif %}>Fast</option>
-            </select><br><br>
-        
-            <label for="amenity">Amenity:</label>
-            <select name="amenity" id="amenity">
-                <option value="none" {% if form_data.amenity == "none" %}selected{% endif %}>No Selection</option>
-                <option value="hospital" {% if form_data.amenity == "hospital" %}selected{% endif %}>Hospital</option>
-                <option value="school" {% if form_data.amenity == "school" %}selected{% endif %}>School</option>
-                <option value="police" {% if form_data.amenity == "police" %}selected{% endif %}>Police Station</option>
-                <option value="restaurant" {% if form_data.amenity == "restaurant" %}selected{% endif %}>Restaurant</option>
-                <option value="pharmacy" {% if form_data.amenity == "pharmacy" %}selected{% endif %}>Pharmacy</option>
-                <option value="cafe" {% if form_data.amenity == "cafe" %}selected{% endif %}>Cafe</option>
-                <option value="library" {% if form_data.amenity == "library" %}selected{% endif %}>Library</option>
-                <option value="university" {% if form_data.amenity == "university" %}selected{% endif %}>University</option>
-                <option value="atm" {% if form_data.amenity == "atm" %}selected{% endif %}>ATM</option>
-                <option value="doctors" {% if form_data.amenity == "doctors" %}selected{% endif %}>Doctors</option>
-                <option value="community_centre" {% if form_data.amenity == "community_centre" %}selected{% endif %}>Community Centre</option>
-                <option value="fire_station" {% if form_data.amenity == "fire_station" %}selected{% endif %}>Fire Station</option>
-                <option value="post_office" {% if form_data.amenity == "post_office" %}selected{% endif %}>Post Office</option>
-                <option value="drinking_water" {% if form_data.amenity == "drinking_water" %}selected{% endif %}>Drinking Water</option>
-                <option value="toilets" {% if form_data.amenity == "toilets" %}selected{% endif %}>Toilets(WC)</option>
-                <option value="clinic" {% if form_data.amenity == "clinic" %}selected{% endif %}>Clinic</option>
-                <option value="supermarket" {% if form_data.amenity == "supermarket" %}selected{% endif %}>Supermarket</option>
-                <option value="convenience" {% if form_data.amenity == "convenience" %}selected{% endif %}>Convenience Store</option>
-                <option value="bakery" {% if form_data.amenity == "bakery" %}selected{% endif %}>Bakery</option>
-                <option value="park" {% if form_data.amenity == "park" %}selected{% endif %}>Park</option>
-            </select><br><br>
+
+            {%include 'form.html' %}
         
             <label for="latitude" hidden>Latitude:</label>
             <input type="text" id="latitude" name="latitude" value="{{ form_data.latitude }}" readonly hidden ><br>

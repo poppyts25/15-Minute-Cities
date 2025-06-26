@@ -140,7 +140,8 @@ def add_error_alert(m, error_message):
         </script>
     """))
 
-@app.route('/')
+@app.route("/")
+@app.route("/home")
 def index():
     # Generate the map
     map_path = "static/map.html"
